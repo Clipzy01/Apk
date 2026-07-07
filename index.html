@@ -4,14 +4,17 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
 <title>7000</title>
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#0b84ff">
+<meta name="description" content="Mesagerie simulata cu numarul 7000">
 
 <!-- Makes this installable as a full-screen app icon on iPhone (Add to Home Screen) -->
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="7000">
-<link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 180'%3E%3Crect width='180' height='180' rx='40' fill='%230b84ff'/%3E%3Ctext x='90' y='112' font-size='64' font-family='-apple-system,Helvetica,Arial,sans-serif' font-weight='600' fill='white' text-anchor='middle'%3E7000%3C/text%3E%3C/svg%3E">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 180'%3E%3Crect width='180' height='180' rx='40' fill='%230b84ff'/%3E%3Ctext x='90' y='112' font-size='64' font-family='-apple-system,Helvetica,Arial,sans-serif' font-weight='600' fill='white' text-anchor='middle'%3E7000%3C/text%3E%3C/svg%3E">
+<link rel="apple-touch-icon" href="icon-192.png">
+<link rel="icon" href="icon-192.png">
 <style>
   * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
   html, body {
@@ -388,6 +391,13 @@ Numar de bord ${boardNumber}`;
   });
 
   sendBtn.addEventListener('click', handleSend);
+
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('sw.js').catch(() => {});
+    });
+  }
+
 </script>
 
 </body>
